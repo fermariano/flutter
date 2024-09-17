@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgetmain.dart';
+import 'package:flutter_application_1/home.dart';
+import 'package:flutter_application_1/login.dart';
 
 class CadastroPage extends StatefulWidget {
   @override
@@ -11,9 +12,7 @@ class _CadastroPageState extends State<CadastroPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cadastro',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 89, 91, 223),
           centerTitle: true,
@@ -96,7 +95,7 @@ class _CadastroPageState extends State<CadastroPage> {
                 ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage())
+                        MaterialPageRoute(builder: (context) => LoginPage())
                       );
                     },
                     child: const Text("Cadastrar")),
@@ -104,23 +103,8 @@ class _CadastroPageState extends State<CadastroPage> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: const Color.fromARGB(255, 89, 91, 223),
-          selectedItemColor: Colors.white,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: Color.fromRGBO(0, 0, 0, 0.996),
-                ),
-                label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person), label: 'Perfil')
-          ],
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-    );
+        
+      );
   }
 }
 

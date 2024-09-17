@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/cadastro.dart';
+import 'package:flutter_application_1/home.dart';
 
-class HomePage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   get label => null;
 
   get child => null;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 89, 91, 223),
           centerTitle: true,
@@ -33,7 +32,17 @@ class HomePage extends StatelessWidget {
                   decoration: InputDecoration(labelText: "Digite sua senha"),
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton(onPressed: () {}, child: const Text("Entrar")),
+                Row(
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => HomePage())
+                          );
+                        }, 
+                        child: const Text("Entrar")),
+                  ],
+                ),
                 const SizedBox(height: 20),
                 Row(
                   children: [
@@ -50,21 +59,8 @@ class HomePage extends StatelessWidget {
               ])),
               
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: const Color.fromARGB(255, 89, 91, 223),
-          selectedItemColor: Colors.white, // Cor do item selecionado
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: Color.fromRGBO(0, 0, 0, 0.996),
-                ),
-                label: 'home'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'person')
-          ],
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-    );
+        
+      );
+
   }
 }
